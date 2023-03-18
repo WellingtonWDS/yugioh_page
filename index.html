@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Yu-Gi-Oh!</title>
+  </head>
+
+  <body>
+    <!-- <header>
+      <div id="search-btn" class="btn-input">Buscar</div>
+    </header> -->
+
+    <!-- <section>
+      <div class="container">
+        <div class="card" id="card1">
+          <div class="front"></div>
+          <div class="back card-image" id="card_image1"></div>
+        </div>
+        <div class="card-desc" id="card_desc1">
+          <div class="front"></div>
+          <div class="back card-image" id="card_image1">
+            <p id="rarity1"></p>
+            <p id="price1"></p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section>
+      <img src="./imgs/logo.png" alt="Yu-Gi-Oh! Logo" class="main-title" />
+    </section>
+
+    <h1>ICONIC CARDS</h1>
+
+    <section class="main-chars">
+      <!-- Blue Eyes -->
+      <div class="card-container">
+        <div class="card">
+          <div class="wrapper">
+            <img src="./imgs/blue-eyes/2.jpg" class="cover-image" />
+            <img
+              src="./imgs/blue-eyes/1.jpg"
+              class="cover-image relative rotate-left"
+            />
+            <img
+              src="./imgs/blue-eyes/3.jpg"
+              class="cover-image relative rotate-right"
+            />
+          </div>
+          <img src="./imgs/blue-eyes/full-image.png" class="character" />
+        </div>
+        <p class="card-name">Blue-Eyes White Dragon</p>
+        <p id="blue-eyes-desc"></p>
+      </div>
+
+      <!-- Dark Magician -->
+      <div class="card-container">
+        <div class="card">
+          <div class="wrapper">
+            <img src="./imgs/dark-magician/2.jpg" class="cover-image" />
+            <img
+              src="./imgs/dark-magician/1.jpg"
+              class="cover-image relative rotate-left"
+            />
+            <img
+              src="./imgs/dark-magician/3.jpg"
+              class="cover-image relative rotate-right"
+            />
+          </div>
+          <img
+            src="./imgs/dark-magician/full-image.png"
+            class="character dark-magician"
+          />
+        </div>
+        <p class="card-name">Dark Magician</p>
+        <p id="dark-magician-desc"></p>
+      </div>
+
+      <!-- Red Eyes -->
+      <div class="card-container">
+        <div class="card">
+          <div class="wrapper">
+            <img src="./imgs/red-eyes/2.jpg" class="cover-image" />
+            <img
+              src="./imgs/red-eyes/1.jpg"
+              class="cover-image relative rotate-left"
+            />
+            <img
+              src="./imgs/red-eyes/3.jpg"
+              class="cover-image relative rotate-right"
+            />
+          </div>
+          <img src="./imgs/red-eyes/full-image.png" class="character" />
+        </div>
+        <p class="card-name">Red-Eyes Black Dragon</p>
+        <p id="red-eyes-desc"></p>
+      </div>
+    </section>
+  </body>
+</html>
+
+<script>
+  window.addEventListener("load", function (event) {
+    console.log("Todos os recursos terminaram o carregamento!");
+
+    // GETTERS
+
+    blueEyesDesc = document.querySelector("#blue-eyes-desc");
+    darkMagicianDesc = document.querySelector("#dark-magician-desc");
+    redEyesDesc = document.querySelector("#red-eyes-desc");
+    console.log(blueEyesDesc);
+
+    getBlueEyesData();
+    getDarkMagicianData();
+    getRedEyesData();
+  });
+
+  function getBlueEyesData() {
+    fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=89631139`)
+      .then((response) => response.json())
+      .then((data) => {
+        blueEyesDesc.innerHTML = data.data[0].desc;
+      });
+  }
+
+  function getDarkMagicianData() {
+    fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=46986414`)
+      .then((response) => response.json())
+      .then((data) => {
+        darkMagicianDesc.innerHTML = data.data[0].desc;
+      });
+  }
+
+  function getRedEyesData() {
+    fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?id=74677422`)
+      .then((response) => response.json())
+      .then((data) => {
+        redEyesDesc.innerHTML = data.data[0].desc;
+      });
+  }
+  // searchBtn = document.getElementById("search-btn");
+
+  // /* CARD 1 */
+  // card1 = document.getElementById("card1");
+  // card_image1 = document.getElementById("card_image1");
+  // rarity1 = document.getElementById("rarity1");
+  // price1 = document.getElementById("price1");
+
+  //   /* CARD 2 */
+  //   card2 = document.getElementById("card2");
+  //   card_image2 = document.getElementById("card_image2");
+  //   rarity2 = document.getElementById("rarity2");
+  //   price2 = document.getElementById("price2");
+
+  //   /* CARD 3 */
+  //   card3 = document.getElementById("card3");
+  //   card_image3 = document.getElementById("card_image3");
+  //   rarity3 = document.getElementById("rarity3");
+  //   price3 = document.getElementById("price3");
+
+  //   /* CARD 4 */
+  //   card4 = document.getElementById("card4");
+  //   card_image4 = document.getElementById("card_image4");
+  //   rarity4 = document.getElementById("rarity4");
+  //   price4 = document.getElementById("price4");
+
+  //   /* CARD 5 */
+  //   card5 = document.getElementById("card5");
+  //   card_image5 = document.getElementById("card_image5");
+  //   rarity5 = document.getElementById("rarity5");
+  //   price5 = document.getElementById("price5");
+
+  // searchBtn.addEventListener(
+  //   "keydown",
+  //   (event) => event.key === "Enter" && searchBtn.click()
+  // );
+
+  // searchBtn.addEventListener("click", () =>
+  //   getCardData(card_image1, rarity1, price1)
+  // );
+  //   searchBtn.addEventListener("click", () =>
+  //     getCardData(card_image2, rarity2, price2)
+  //   );
+  //   searchBtn.addEventListener("click", () =>
+  //     getCardData(card_image3, rarity3, price3)
+  //   );
+  //   searchBtn.addEventListener("click", () =>
+  //     getCardData(card_image4, rarity4, price4)
+  //   );
+  //   searchBtn.addEventListener("click", () =>
+  //     getCardData(card_image5, rarity5, price5)
+  //   );
+
+  // card1.addEventListener("click", () => flip(card1));
+  // //   card2.addEventListener("click", () => flip(card2));
+  // //   card3.addEventListener("click", () => flip(card3));
+  // //   card4.addEventListener("click", () => flip(card4));
+  // //   card5.addEventListener("click", () => flip(card5));
+
+  // card_image1.addEventListener("click", () => zoom(card1));
+
+  // function zoom(card) {
+  //   card.style.zIndex = -5;
+  //   card.style.display = "flex";
+  //   card.style.justifyContent = "center";
+  //   card.style.alignItens = "center";
+  //   card.style.scale = "1.5";
+  //   card.style.transition = "all 300ms ease-out";
+  // }
+
+  // function flip(card) {
+  //   card.style.webkitTransform = "rotateY(180deg)";
+  // }
+
+  // function getCardData(card, rarity, price) {
+  //   fetch(`https://db.ygoprodeck.com/api/v7/randomcard.php`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       let id = data.id;
+
+  //       card.style.backgroundImage = `url('https://storage.googleapis.com/ygoprodeck.com/pics/${id}.jpg')`;
+
+  //       rarity.innerHTML = data.card_sets[0].set_rarity;
+  //       price.innerHTML = "U$ " + data.card_prices[0].cardmarket_price;
+  //     });
+  // }
+</script>
+
+<!-- 
+    blue-eyes white dragon id = 89631139
+
+    dark magician  id = 46986414
+
+    red-eyes black dragon id = 74677422
+
+    exodia
+
+        head id = 33396948
+        left arm id = 7902349
+        left leg id = 44519536
+        right arm id = 70903634
+        right leg id = 8124921
+        
+
+
+
+
+
+ -->
